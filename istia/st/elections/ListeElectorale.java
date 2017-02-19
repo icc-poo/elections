@@ -67,6 +67,8 @@ public class ListeElectorale {
 	 * @param id int : identifiant de la liste
 	 * @throws ElectionsException si id<1
 	 */
+	
+	//Test Commit
 	public void setId(int id) {
 		if(id<1){
 			throw new ElectionsException("L'id ne peut être inférieur à 1!");

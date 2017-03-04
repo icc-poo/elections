@@ -1,0 +1,30 @@
+import java.util.regex.*;
+
+class RegExpr2 {
+	
+	public static void main(String args[]) {
+	
+		Pattern pat = Pattern.compile("(SeuilElectoral[([0-9]*2)[)]");
+		String str = "Java_8";
+		Matcher mat = pat.matcher(str);
+		System.out.println("Looking for Java in Java 8.");
+		
+		
+		@Test
+		public void saveStringToFile() {
+			String saveString = "this is test line one \n" + "this is test line two \n" ;
+			
+			File testFile = new File("testsavetostring.txt");
+			testFile.delete();
+			assertFalse("File should not exist", testFile.exists());
+			assertTrue("File should've been saved", MyUtilities.saveStringToFile("testsavestring.txt", saveString));
+			
+			String newString = MyUtilities.getStringFromFile("testsavestring.txt");
+			assertTrue("Save and get strings should be equal", saveString.equals(newString));
+			
+			assertFalse("File should not be saved", MyUtilities.saveStringToFile("non-existant directory/thisshouldfail.txt", saveString));
+			String emptyString = MyUtilities.getStringFromFile("badfilename.txt");
+			assertTrue("String should be empty", emptyString.length() == 0);
+			
+		}
+		
